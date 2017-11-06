@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<title>Primeros pasos con JavaScript</title>
+	<meta name="description" content="Primeros pasos para aprender JavaScript">
+</head>
+<body>
+	<h2>Mostrar Fecha</h2>		
+	<script>
+		//comentario de una linea
+		
+		/*comentario
+		multi linea*/
+
+		/*JavaScript tiene 3 objetos principales:
+		   1)DOcument
+		   2)window
+		   3)navigator*/
+		document.write("<h1>"+Date()+"<h1/>");
+	</script>
+	<hr />
+	<h2>Remplazar contenido HTML</h2>
+	<p id="prueba-fecha">Este es un párrafo</p>
+	<script>
+		document.getElementById("prueba-fecha").innerHTML = Date();
+	</script>
+	<hr />
+	<h2>Reemplazar contenido HTML con un evento</h2>
+	<p id="prueba-fecha2">Este es otro párrafo</p>
+	<input type="button" value="Mostrar Fecha" onclick="mostrarFecha()">
+	<script type="text/javascript">
+		//Declaracion de una función
+		function mostrarFecha(){
+			document.getElementById("prueba-fecha2").innerHTML = Date();
+		}
+	</script>
+	<hr />	
+	<h2>Variables</h2>
+	<script type="text/javascript">
+		var x = 5;
+		document.write(x+"<br />");
+		x*=10;
+		document.write(x);
+	</script>
+	<hr />
+	<h2>if - elseif - else</h2>
+	<script type="text/javascript">
+		var fecha = new Date();
+		var hora = fecha.getHours();
+		document.write(hora);
+		if(hora <= 11){
+			document.write("<br /> <h3>Buenos dias</h3>");
+		}else if(hora >= 12 && hora <=18){
+			document.write("<br /> <h3>Buenas tardes</h3>");
+		}else{
+			document.write("<br /> <h3>Buenas noches</h3>");
+		}
+	</script>
+	<hr />
+	<h2>Switch - Case</h2>
+	<script type="text/javascript">
+		var dia = fecha.getDay();
+		document.write(dia);
+		//lun =1, Mar=2, Mie=3, Jue=4, Vie=5, Sab=6, Dom=0
+		switch(dia){
+			case 0:
+				document.write("<br />Domingo :D");
+				break;
+			case 1:
+				document.write("<br />Lunes :D");
+				break;
+			case 2:
+				document.write("<br />Martes :D");
+				break;
+			case 3:
+				document.write("<br />Miercoles :D");
+				break;
+			case 4:
+				document.write("<br />Jueves :D");
+				break;
+			case 5:
+				document.write("<br />Viernes :D");
+				break;
+			case 6:
+				document.write("<br />Sabado :D");
+				break;
+			default:
+				document.write("No existe el dia");
+		}
+	</script>
+	<hr />
+	<h2>For</h2>
+	<script type="text/javascript">
+		//3 partes: 1)Inicializacion 2)CONDICION 3) INCREMENTO O DECREMENTO	
+		for(var i = 1; i <7; i++){
+			document.write("<h"+ i +"> Esto es un encabezado de tipo "+ i +" </h"+ i +">");
+		}
+	</script>
+	<hr />
+	<h2>While</h2>
+	<script type="text/javascript">
+		var j=6;
+		while(j>0){
+			document.write("<h"+ j +"> Esto es un encabezado de tipo "+ j +" </h"+ j +">")
+			j--;
+		}
+	</script>
+	<hr />
+	<h2>Caja de iteracción</h2>
+	<script type="text/javascript">
+		function mostrarAlerta(){
+			alerta("Hola Mundo");
+		}
+		function mostrarConfirmacion(){
+			confirm("Selecciona una opción");
+		}
+		function mostrarDialogo(){
+			prompt("Escribe tu nombre");
+		}
+	</script>
+		<!-- input[type="button"][value="Caja"][onclick=""]*3 -->
+		<input type="button" value="Caja de Alerta" onclick="mostrarAlerta()" />	
+		<input type="button" value="Caja de Confirmacion" onclick="mostrarConfirmacion()" />	
+		<input type="button" value="Caja de Dialogo" onclick="mostrarDialogo()" />	
+	<hr />
+	<h2>Try... catch (Detección de errores</h2>
+	<script type="text/javascript">
+		function mensajeError(){
+			try{
+				alert("Hola");
+			}catch(error){
+				alert(error.message);
+			}
+		}
+	</script>
+	<input type="button" onclic="mensajeError()" value="Ver error">
+	<hr />
+	<h2>Consola de JavaScript</h2>
+	<script type="text/javascript">
+		function mostrarConsola(){
+			var nombre = "Andres";
+			console.log("Hola "+nombre);
+		}
+	</script>
+	<input type="button" value="Ver Consola" onclick="mostrarConsola()">
+	<hr />
+	<h2>Arreglos</h2>
+	<script type="text/javascript">
+		var misVariables = new Array("cadena", 1, true);
+		document.write(misVariables+"<br />");
+		document.write(misVariables[0]+"<br />");
+		document.write(misVariables[1]+"<br />");
+		document.write(misVariables[2]+"<br />");
+
+		var semana = new Array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
+		for(var n=0; n<semana.length;n++){
+			document.write(semana[n]+"<br />")
+		}
+	</script>
+	<hr />
+	<h2>Información del navegador</h2>
+	<script type="text/javascript">
+		document.write("Nombre: "+navigator.appName+"<br />");
+		document.write("Versión: "+navigator.appVersion+"<br />");
+		document.write("Sistema Operativo: "+navigator.platform+"<br />");
+	</script>
+</body>
+
+</html>
